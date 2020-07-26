@@ -8,6 +8,11 @@ Vue.use(ElementUI)
 // 导入router
 import router from '@/router'
 
+// 导入axios
+import axios from 'axios'
+// 挂载全局
+Vue.prototype.$http = axios
+
 Vue.config.productionTip = false
 
 new Vue({
