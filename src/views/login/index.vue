@@ -25,6 +25,8 @@
 </template>
 
 <script>
+// 导入用户信息
+import auth from '@/utils/auth.js'
 export default {
     name:'page-login',
     data() {
@@ -68,17 +70,18 @@ export default {
             this.$refs.loginForm.validate(async valid => {
                 if (valid) {
                     // 跳转登录界面
-                    await this.$http.post('http://ttapi.research.itcast.cn/mp/v1_0/authorizations',this.loginForm)
+                    await this.$http.post('authorizations',this.loginForm)
                     .then(res => {
+                        // console.log(res);
+                        // 保存用户信息
+                        auth.setUser(res.data.data)
                         // 跳转登录界面
                         this.$router.push('/')
                     }).catch(error => {
                         // 错误提示
                         this.$message.error('手机号或验证码错误')
                     })
-                } else {
-                    this.$message.error('手机号或验证码错误')
-                }
+                } 
             })
         }
     }

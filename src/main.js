@@ -9,7 +9,7 @@ Vue.use(ElementUI)
 import router from '@/router'
 
 // 导入axios
-import axios from 'axios'
+import axios from '@/api'
 // 挂载全局
 Vue.prototype.$http = axios
 
