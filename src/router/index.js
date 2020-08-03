@@ -8,6 +8,10 @@ Vue.use(VueRouter)
 import Login from '@/views/login'
 // 导入首页
 import Layout from '@/views/Layout'
+// 导入欢迎
+import Welcome from '@/views/welcome'
+// 导入404
+import NoFound from '@/views/404'
 
 // 导入auth
 import auth from '@/utils/auth.js'
@@ -15,7 +19,19 @@ import auth from '@/utils/auth.js'
 //初始化路由
 const routes = [
     {path:'/login',component:Login},
-    {path:'/',component:Layout}
+    {
+        path:'/',
+        component:Layout,
+        children:[
+            // 欢迎
+            {path:'/',component:Welcome}
+        ]
+    },
+    // 404
+    {
+        path:'*',
+        component:NoFound
+    }
 ]
 
 //new一个VueRouter实例
