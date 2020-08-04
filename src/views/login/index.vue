@@ -69,18 +69,17 @@ export default {
             // 对整体表单校验,参数valid是布尔值true代表校验成功
             this.$refs.loginForm.validate(async valid => {
                 if (valid) {
-                    // 跳转登录界面
-                    await this.$http.post('authorizations',this.loginForm)
-                    .then(res => {
-                        // console.log(res);
+                    try {
+                        // 跳转登录界面
+                        const res =  await this.$http.post('authorizations',this.loginForm)
                         // 保存用户信息
                         auth.setUser(res.data.data)
                         // 跳转登录界面
                         this.$router.push('/')
-                    }).catch(error => {
+                    } catch (error) {
                         // 错误提示
                         this.$message.error('手机号或验证码错误')
-                    })
+                    }
                 } 
             })
         }

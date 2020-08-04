@@ -13,6 +13,11 @@ import axios from '@/api'
 // 挂载全局
 Vue.prototype.$http = axios
 
+// 导入自己的插件
+import plugin from '@/plugin'
+// 注册
+Vue.use(plugin)
+
 Vue.config.productionTip = false
 
 new Vue({

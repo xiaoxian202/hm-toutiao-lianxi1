@@ -12,6 +12,8 @@ import Layout from '@/views/Layout'
 import Welcome from '@/views/welcome'
 // 导入404
 import NoFound from '@/views/404'
+// 内容管理
+import Article from '@/views/article'
 
 // 导入auth
 import auth from '@/utils/auth.js'
@@ -24,7 +26,8 @@ const routes = [
         component:Layout,
         children:[
             // 欢迎
-            {path:'/',component:Welcome}
+            {path:'/',component:Welcome},
+            {path:'/article',component:Article},
         ]
     },
     // 404

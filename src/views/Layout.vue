@@ -9,38 +9,39 @@
             @open="handleOpen":sub-menu 展开的回调
             @close="handleClose":sub-menu 收起的回调-->
             <el-menu
-               default-active="1"
+               :default-active="$route.path"
                class="el-menu-vertical-demo"
                background-color="#002233"
                text-color="#fff"
                active-text-color="#ffd04b"
                :collapse="!isOpen"
-               :collapse-transition="isOpen">
-                <el-menu-item index="1">
+               :collapse-transition="isOpen"
+               router>
+                <el-menu-item index="/">
                     <i class="el-icon-s-home"></i>
                     <span>首页</span>
                 </el-menu-item>
-                <el-menu-item index="2">
+                <el-menu-item index="/article">
                     <i class="el-icon-document"></i>
                     <span>内容管理</span>
                 </el-menu-item>
-                <el-menu-item index="3">
+                <el-menu-item index="/image">
                     <i class="el-icon-picture"></i>
                     <span>素材管理</span>
                 </el-menu-item>
-                <el-menu-item index="4">
+                <el-menu-item index="/publish">
                     <i class="el-icon-s-promotion"></i>
                     <span>发布文章</span>
                 </el-menu-item>
-                <el-menu-item index="5">
+                <el-menu-item index="/comment">
                     <i class="el-icon-chat-dot-round"></i>
                     <span>评论管理</span>
                 </el-menu-item>
-                <el-menu-item index="6">
+                <el-menu-item index="/fans">
                     <i class="el-icon-present"></i>
                     <span>粉丝管理</span>
                 </el-menu-item>
-                <el-menu-item index="7">
+                <el-menu-item index="/setting">
                     <i class="el-icon-setting"></i>
                     <span>个人设置</span>
                 </el-menu-item>
